@@ -25,11 +25,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 function addTodos(res) {
     res.data.forEach(todo => {
-        console.log(todo.name);
         const ul = $('.list');
         const li = document.createElement('li');
         li.innerText = todo.name;
         li.classList.add('task');
+        console.log(li);
+        if (todo.completed) {
+            li.classList.add('done');
+        }
         ul.appendChild(li);
     });
 }
