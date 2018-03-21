@@ -1,5 +1,4 @@
 // based on https://gist.github.com/paulirish/12fb951a8b893a454b32
-
 const $ = document.querySelector.bind(document);
 const $$ = document.querySelectorAll.bind(document);
 
@@ -15,8 +14,25 @@ NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn
   });
 };
 
-console.log('hey there partner');
+document.addEventListener("DOMContentLoaded", function() {
+    console.log('hey there partner');
+    
+    axios.get('/api/todos')
+    .then(addTodos)
 
-$('#btn').on('click', function() {
-    console.log('clicked biotch!');
-})
+});
+
+
+function addTodos(res) {
+    res.data.forEach(todo => {
+        console.log(todo.name);
+        const ul = $('.list');
+        const li = document.createElement('li');
+        li.innerText = todo.name;
+        li.classList.add('task');
+        ul.appendChild(li);
+    });
+}
+
+
+
