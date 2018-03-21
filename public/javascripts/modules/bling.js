@@ -15,8 +15,4 @@ NodeList.prototype.on = NodeList.prototype.addEventListener = function (name, fn
   });
 };
 
-console.log('hey there partner');
-
-$('#btn').on('click', function() {
-    console.log('clicked biotch!');
-})
+export { $, $$ };
