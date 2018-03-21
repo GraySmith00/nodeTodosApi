@@ -5,11 +5,11 @@ const helpers = require('../helpers/todos');
 
 router.route('/')
     .get(helpers.getTodos)
-    .post(helpers.createTodo)
+    .post(helpers.createTodo);
 
 router.route('/:todoId')
     .get(helpers.showTodo)
     .put(helpers.updateTodo)
-    .delete(helpers.deleteTodo)
+    .delete(helpers.deleteTodo);
 
 module.exports = router;
